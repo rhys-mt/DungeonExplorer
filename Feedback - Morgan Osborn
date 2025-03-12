@@ -4,12 +4,28 @@
 
 ## Game.cs
 
-Clear structurte throughout the class with senssible method names including comments which explain their purpose.
-Encapsulation used within this class to ensure that all game logic is in one location
-Good use of OOP Principles, properly intitialised and interactions with the player and room objects.
-Easy to expand in the future and there is minimal hardcoding so allows for easy modification.
+Good Aspects:
+	Clear structurte throughout the class with senssible method names including comments which explain their purpose.
+	Encapsulation used within this class to ensure that all game logic is in one location.
+	Good use of OOP Principles, properly intitialised and interactions with the player and room objects.
+	Easy to expand in the future and there is minimal hardcoding so allows for easy modification.
+
+Improvements:
+	Lack of error handling and input validation.
+	Introduce a loop or recall of the game menu because once it finishes its primary loop the program is halted.
+	Introduce a battle function so the health attribute is used and can be ammended.
 
 ## Player.cs
+
+Good Aspects:
+	Encapuslation of player properties is introduced well.
+	Good and functional player inventory system.
+	Simple, readable and fluent code.
+
+Improvements:
+	Inventory only stores one item at a time, maybe allow more than one item to be held at a time.
+	Add validation to the items, if its null it could introduce an error.
+	Maybe include player actions like defend and fight once the battle function is introduced.
 
 ## Room.cs
 
