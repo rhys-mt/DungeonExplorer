@@ -1,31 +1,39 @@
-﻿namespace DungeonExplorer.Player // defines namespace in order to organize the related classes
+﻿using System;
+using System.Collections.Generic;
+
+namespace DungeonExplorer.Player // Defines namespace in order to organize the related classes
 {
-    public class Player //definining the "player" class
+    public class Player // Defining the "Player" class
     {
-        // private fields to store the player stats
+        // Private fields to store the player’s stats
         private string name;
         private int health;
-        private string inventory;
+        private List<string> inventory; // List to store multiple items
 
-        //constructor used to initialize the players stats when creating an object
+        // Constructor initializes player attributes
         public Player(string name, int health)
         {
-            this.name = name; // name parameter
-            this.health = health; //health value
-            this.inventory = "Empty"; //deafult inventory status
-        }
-        //method for picking up item within a room
-        //allwos the player to pick up the item and adds to the inventory
-        public void PickUpItem(string item)
-        {
-            inventory = item; //updates the inventory with the new item collected
+            this.name = name; // Assigns name parameter
+            this.health = health; // Assigns health value
+            this.inventory = new List<string>(); // Initializes inventory as an empty list
         }
 
-        // method: GetStatus()
-        // returns a formatted string showing the player's current status
+        // Method for picking up an item within a room
+        public void PickUpItem(string item)
+        {
+            if (!string.IsNullOrEmpty(item))
+            {
+                inventory.Add(item); // Adds item to inventory instead of replacing previous ones
+            }
+        }
+
+        // Method: GetStatus()
+        // Returns a formatted string showing the player's current status
         public string GetStatus()
         {
-            return $"Player: {name}, Health: {health}, Inventory: {inventory}";
+            string inventoryList = inventory.Count > 0 ? string.Join(", ", inventory) : "Empty";
+            return $"Player: {name}, Health: {health}, Inventory: {inventoryList}";
         }
     }
 }
+
