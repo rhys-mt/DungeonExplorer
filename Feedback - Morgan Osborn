@@ -1,6 +1,6 @@
 # Feedback
 
-	Morgan Osborn
+Morgan Osborn
 
 ## Game.cs
 
@@ -84,5 +84,8 @@ Improvements:
 6. [/]  The implementation of classes, object instantiation, encapsulation
 	and methods are complete and with no issues.
 
-Questions Guide:
-
+Question Guide:
+Have the requirements been met?
+Is the code formatted using the Style Guidelines correctly?
+Is the code easy to read?
+Are different errors handled correctly?
