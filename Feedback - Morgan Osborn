@@ -29,6 +29,16 @@ Improvements:
 
 ## Room.cs
 
+Good Aspects:
+	GetDescription() method works affectively and promptly providing room descirptions.
+	Simplicity of the code allows for easy interpretation.
+	Proper use of properties such as 'item'.
+
+Improvements:
+	Add methods for rooms to introduce a greater sense of interactvity within the game.
+	Expand to multiple rooms allowing the user to manouver through the game and make progress.
+	Support other entities in the room such as monsters or enemies,
+
 # Checklist:
 
 ## Pass standard:
@@ -36,7 +46,7 @@ Improvements:
 1. [/] The code compiles and runs.
 2. [/] The player can explore at least one room.
 3. [/] Object instantiation, method calls evident.
-4. [.] There is code review from two students.
+4. [/] There is code review from two students.
 5. [/] Handle invalid commands gracefully without crashing the program.
 
 ## 2:2 standard:
@@ -46,7 +56,7 @@ Improvements:
 3. [/]  The player can pick up items through an implementation of the
         Player.PickUpItem() method.
 4. [/]  The C# style guide is followed partially.
-5. [?]  At least one room has a description and can contain one item or one
+5. [.]  At least one room has a description and can contain one item or one
 	monster. These functionalities are given by the Room.GetDescription() method.
 6. [/]  Method calls from ‘Main’ to methods in other classes
 
