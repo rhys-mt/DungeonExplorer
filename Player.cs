@@ -1,25 +1,31 @@
-﻿using System.Collections.Generic;
-
-namespace DungeonExplorer
+﻿namespace DungeonExplorer.Player // defines namespace in order to organize the related classes
 {
-    public class Player
+    public class Player //definining the "player" class
     {
-        public string Name { get; private set; }
-        public int Health { get; private set; }
-        private List<string> inventory = new List<string>();
+        // private fields to store the player stats
+        private string name;
+        private int health;
+        private string inventory;
 
-        public Player(string name, int health) 
+        //constructor used to initialize the players stats when creating an object
+        public Player(string name, int health)
         {
-            Name = name;
-            Health = health;
+            this.name = name; // name parameter
+            this.health = health; //health value
+            this.inventory = "Empty"; //deafult inventory status
         }
+        //method for picking up item within a room
+        //allwos the player to pick up the item and adds to the inventory
         public void PickUpItem(string item)
         {
-
+            inventory = item; //updates the inventory with the new item collected
         }
-        public string InventoryContents()
+
+        // method: GetStatus()
+        // returns a formatted string showing the player's current status
+        public string GetStatus()
         {
-            return string.Join(", ", inventory);
+            return $"Player: {name}, Health: {health}, Inventory: {inventory}";
         }
     }
 }
