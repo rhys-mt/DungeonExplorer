@@ -2,7 +2,12 @@
 
 	Morgan Osborn
 
-## Game.cs 
+## Game.cs
+
+Clear structurte throughout the class with senssible method names including comments which explain their purpose.
+Encapsulation used within this class to ensure that all game logic is in one location
+Good use of OOP Principles, properly intitialised and interactions with the player and room objects.
+Easy to expand in the future and there is minimal hardcoding so allows for easy modification.
 
 ## Player.cs
 
