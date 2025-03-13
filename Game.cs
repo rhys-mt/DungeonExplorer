@@ -21,13 +21,17 @@ namespace DungeonExplorer.Game
             {
                 { "Burial Room", new Room("A dark, mysterious Draugr burial room", "Draugr Relic") },
                 { "Dragon Chamber", new Room("A hidden chamber filled with ancient gold and artifacts. Even a skeleton key.", "Gold Claw Skeleton Key") },
-                { "Urn Hallway", new Room("A long, eerie hallway leading deeper into the dungeon", "Health Potion") }
+                { "Urn Hallway", new Room("A long, eerie hallway leading deeper into the dungeon", "Health Potion") },
+                { "Armory", new Room("A dusty armory filled with ancient weapons and shields", "Iron Sword") },
+                { "Shrine Room", new Room("A sacred chamber with an eerie glowing altar", "Blessing of Talos") }
             };
 
             // Defines the connections between rooms (north, south, east, west)
             rooms["Burial Room"].SetExits(rooms["Dragon Chamber"], rooms["Urn Hallway"], null, null);
-            rooms["Dragon Chamber"].SetExits(null, rooms["Burial Room"], null, null);
-            rooms["Urn Hallway"].SetExits(rooms["Burial Room"], null, null, null);
+            rooms["Dragon Chamber"].SetExits(null, rooms["Burial Room"], rooms["Shrine Room"], null);
+            rooms["Urn Hallway"].SetExits(rooms["Burial Room"], rooms["Armory"], null, null);
+            rooms["Armory"].SetExits(rooms["Urn Hallway"], null, null, null);
+            rooms["Shrine Room"].SetExits(null, null, null, rooms["Dragon Chamber"]);
 
             // The game starts in the Burial Room
             currentRoom = rooms["Burial Room"];
@@ -75,7 +79,7 @@ namespace DungeonExplorer.Game
                 }
                 else
                 {
-                    Console.WriteLine("Invalid choice. Try again.");
+                    Console.WriteLine("Way is blocked. Try again.");
                 }
             }
         }
@@ -96,4 +100,3 @@ namespace DungeonExplorer.Game
         }
     }
 }
-
