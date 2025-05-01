@@ -1,28 +1,29 @@
-ï»¿using System;
+using System;
 using System.Collections.Generic;
+using DungeonExplorer.Game;
+using DungeonExplorer.Interfaces;
 
-namespace DungeonExplorer // Namespace for the room class
+namespace DungeonExplorer
 {
-    public class Room // Room class represents locations in the game
+    // Represents a single room within the dungeon
+    public class Room
     {
-        // Private field storing the description for the room
-        private string description;
+        private string description; // Text description of the room
+        public ICollectible Item { get; private set; } // Item available in this room (e.g., weapon, shout, potion)
+        private Dictionary<string, Room> exits; // Directional exits from this room to other rooms
 
-        // Public property for items in the room (can only be set inside the class)
-        public string Item { get; private set; }
+        public Monster Monster { get; private set; } // Optional monster that may appear in the room
 
-        // Stores room connections (North, South, East, West)
-        private Dictionary<string, Room> exits;
-
-        // Constructor initializes the room with a description and item
-        public Room(string description, string item)
+        // Constructor to initialize room with description, optional item, and optional monster
+        public Room(string description, ICollectible item, Monster monster = null)
         {
             this.description = description;
             this.Item = item;
-            this.exits = new Dictionary<string, Room>(); // Initializes an empty dictionary for exits
+            this.Monster = monster;
+            this.exits = new Dictionary<string, Room>();
         }
 
-        // Method to set exits for each room (north, south, east, west)
+        // Defines the connections between the rooms 
         public void SetExits(Room north, Room south, Room east, Room west)
         {
             if (north != null) exits["north"] = north;
@@ -31,18 +32,28 @@ namespace DungeonExplorer // Namespace for the room class
             if (west != null) exits["west"] = west;
         }
 
-        // Method to get the next room when moving in a direction
+        // Returns the room in the given direction, or null if there isnt a connection
         public Room GetExit(string direction)
         {
             return exits.ContainsKey(direction) ? exits[direction] : null;
         }
 
-        // Method: GetDescription()
-        // Returns the room description when called
+        // Returns the room’s description
         public string GetDescription()
         {
             return description;
         }
+
+        // Removes the monster from the room (used after defeating it)
+        public void ClearMonster()
+        {
+            Monster = null;
+        }
+
+        // Removes the item from the room (used after picking it up)
+        public void ClearItem()
+        {
+            Item = null;
+        }
     }
 }
-
