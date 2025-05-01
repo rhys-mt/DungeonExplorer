@@ -1,11 +1,15 @@
-﻿namespace DungeonExplorer.Program // Defines namespace for this class (Program)
+namespace DungeonExplorer
 {
-    class Program // Defines the entry point
+    // Entry point 
+    class Program
     {
-        // Main method as entry point for the application
+        // Main method: the first method called when the program starts
         static void Main()
         {
-            Game.Game game = new Game.Game();
+            // Creates an instance of the game
+            var game = new Game.Game();
+
+            // Start the game loop
             game.Start();
         }
     }
